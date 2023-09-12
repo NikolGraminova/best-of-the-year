@@ -6,14 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Homepage</title>
+    <title>Songs</title>
 </head>
 <body class="bg-secondary">
-    <div class="container text-center mt-5">
-        <h1>Best of the year by <span th:text="|${info.firstName} ${info.lastName}|"></span></h1>
 
-        <a class="btn btn-dark" th:href="@{/best-movies}">movies</a>
-        <a class="btn btn-dark" th:href="@{/best-songs}">songs</a>
-    </div>
+<div class="container text-center">
+    <h1 class="mt-5">BEST SONGS</h1>
+    <ul class="list-group w-50 m-auto">
+        <li class="list-group-item bg-dark text-white" th:each="s : ${songs}" th:text="|ID ${s.id}. ${s.title}|"></li>
+    </ul>
+    <a class="btn btn-dark mt-3" th:href="@{/}">Back to homepage</a>
+</div>
+
+
 </body>
 </html>
