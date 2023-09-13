@@ -5,7 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Songs</title>
 </head>
 <body class="bg-secondary">
@@ -13,11 +14,13 @@
 <div class="container text-center">
     <h1 class="mt-5">BEST SONGS</h1>
     <ul class="list-group w-50 m-auto">
-        <li class="list-group-item bg-dark text-white" th:each="s : ${songs}" th:text="|ID ${s.id}. ${s.title}|"></li>
+        <li class="list-group-item bg-dark text-white" th:each="song : ${songs}">
+            <span th:text="${song.title}"> </span>
+            <a class="text-white" th:href="@{/songs/{songId}(songId=${song.id})}"> Details </a>
+        </li>
     </ul>
+
     <a class="btn btn-dark mt-3" th:href="@{/}">Back to homepage</a>
 </div>
-
-
 </body>
 </html>
